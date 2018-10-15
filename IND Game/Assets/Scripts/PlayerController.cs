@@ -9,13 +9,11 @@ public class PlayerController : MonoBehaviour
     public Camera camera;
     public NavMeshAgent agent;
     RaycastHit hit;
-   
 
 
     // Use this for initialization
     void Start()
     {
-
         
 
     }
@@ -23,13 +21,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log("Running");
         if (Input.GetMouseButtonDown(0))
-
         {
-
-            Debug.Log("Mouse Clicked");
+            Debug.Log("mOUSE clicked");
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
@@ -37,7 +31,6 @@ public class PlayerController : MonoBehaviour
 
                 agent.SetDestination(hit.point);
                
-
 
             }
 
