@@ -7,6 +7,15 @@ public class Collect : MonoBehaviour {
     private AudioSource Source;
     [SerializeField] private AudioClip Clip;
 
+	CollectiblesController cc;
+
+	void Start()
+	{
+		GameObject ccgo = GameObject.Find ("CollectiblesController");
+		cc = ccgo.GetComponent<CollectiblesController> ();
+	}
+
+
     void OnTriggerEnter(Collider other)
     {
 
@@ -15,6 +24,9 @@ public class Collect : MonoBehaviour {
 
             Source = other.GetComponent<AudioSource>();
             Source.PlayOneShot(Clip, 1.0f);
+
+
+			cc.IncrementCount(gameObject);
 
 
             Destroy(gameObject);

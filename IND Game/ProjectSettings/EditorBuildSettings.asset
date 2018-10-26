@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/DesertMap.unity
+    guid: 4ae1b3c160e6bb545945ff1f011fc1e8
+  - enabled: 1
+    path: Assets/New Scene.unity
+    guid: bcc569a6d848dcc42ada5bc9604a4777

@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour
     private float dist;
     Quaternion newRotation;
     float rotSpeed = 5f;
+
    
+
+	Quaternion savedRot;
 
 
     // Use this for initialization
@@ -59,6 +62,9 @@ public class PlayerController : MonoBehaviour
         newRotation.z = 0.0f;
 
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, rotSpeed * Time.deltaTime);
+
+
+
         
 
     }
