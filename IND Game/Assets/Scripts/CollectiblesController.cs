@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public class CollectiblesController : MonoBehaviour 
 {
 	public CollectiblesData[] cd;
+    public HighScoreData[] Hs;
+    private int DiamondScore;
+    private int CubieScore;
+    private int HexgonScore;
+    private int TotalScore;
+    private bool ScoreCalculated = false;
+
+    
 
 	public void SaveData()
 	{
@@ -33,6 +42,22 @@ public class CollectiblesController : MonoBehaviour
 		}
 			
 	}
+
+   public void CalcHighScore()
+    {
+        OutputCounts();
+        DiamondScore = cd[0].CollectibleNum * 5;
+        Debug.Log("Your score for diamonds is " + DiamondScore);
+
+        CubieScore = cd[1].CollectibleNum * 3;
+        Debug.Log("Your score for cubies is " + CubieScore);
+
+        HexgonScore = cd[2].CollectibleNum * 1;
+        Debug.Log("Your score for hexagons is " + HexgonScore);
+
+        TotalScore = DiamondScore + CubieScore + HexgonScore;
+        Debug.Log("Your total score is " + TotalScore);
+    }
 
 
 	void Awake()
@@ -75,7 +100,7 @@ public class CollectiblesController : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown ("l")) {
+        /*if (Input.GetKeyDown ("l")) {
 			Debug.Log ("Loading data...");
 			LoadData ();
 		} else if (Input.GetKeyDown ("s")) 
@@ -83,5 +108,17 @@ public class CollectiblesController : MonoBehaviour
 			Debug.Log ("Saving data...");
 			SaveData ();
 		}
+        */
+
+        if (SceneManager.GetActiveScene().buildIndex == 1 && ScoreCalculated == false)
+        {
+            CalcHighScore();
+            ScoreCalculated = true;
+
+
+        }
+
+
+
 	}	
 }

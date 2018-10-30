@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114307224167564800}
   - component: {fileID: 64602513101719862}
   - component: {fileID: 114841877785731658}
+  - component: {fileID: 114217409985206946}
   m_Layer: 0
   m_Name: 5 Side Diamond
   m_TagString: Untagged
@@ -99,6 +100,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: aa56074584965524093e852b02a99de7, type: 3}
+--- !u!114 &114217409985206946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092982810700214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03bab1708e4f5948a19a9201a7f6536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collectible: {fileID: 0}
 --- !u!114 &114307224167564800
 MonoBehaviour:
   m_ObjectHideFlags: 1
