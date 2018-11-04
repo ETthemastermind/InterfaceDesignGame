@@ -4,24 +4,27 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
+using System;
 
 public class CollectiblesController : MonoBehaviour 
 {
 	public CollectiblesData[] cd;
     public HighScoreData[] Hs;
+    private int[] ranking;
     private int DiamondScore;
     private int CubieScore;
     private int HexgonScore;
     private int TotalScore;
     private bool ScoreCalculated = false;
+    private bool HSloaded = false;
 
     
 
 	public void SaveData()
 	{
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream fs = File.Create (Application.persistentDataPath + "/gameData.dat");
-		bf.Serialize (fs, cd);
+		FileStream fs = File.Create (Application.persistentDataPath + "/Highscores.dat");
+		bf.Serialize (fs, Hs);
 		fs.Close ();
 		Debug.Log ("Data saved.");
 	}
@@ -30,10 +33,10 @@ public class CollectiblesController : MonoBehaviour
 
 	public void LoadData()
 	{
-		if (File.Exists (Application.persistentDataPath + "/gameData.dat")) {
+		if (File.Exists (Application.persistentDataPath + "/Highscores.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream fs = File.Open (Application.persistentDataPath + "/gameData.dat", FileMode.Open);
-			cd = (CollectiblesData[])bf.Deserialize (fs);
+			FileStream fs = File.Open (Application.persistentDataPath + "/Highscores.dat", FileMode.Open);
+			Hs = (HighScoreData[])bf.Deserialize (fs);
 			fs.Close ();
 			Debug.Log ("Data Loaded");
 		} else 
@@ -45,7 +48,8 @@ public class CollectiblesController : MonoBehaviour
 
    public void CalcHighScore()
     {
-        OutputCounts();
+        //OutputCounts();
+
         DiamondScore = cd[0].CollectibleNum * 5;
         Debug.Log("Your score for diamonds is " + DiamondScore);
 
@@ -57,6 +61,29 @@ public class CollectiblesController : MonoBehaviour
 
         TotalScore = DiamondScore + CubieScore + HexgonScore;
         Debug.Log("Your total score is " + TotalScore);
+
+        Hs[5].HighscoreNum = TotalScore;
+
+        Array.Sort(Hs);
+        
+
+
+
+
+        //SaveData();
+
+
+
+
+
+        /*Debug.Log(Hs[0].HighscoreNum);
+        Debug.Log(Hs[1].HighscoreNum);
+        Debug.Log(Hs[2].HighscoreNum);
+        Debug.Log(Hs[3].HighscoreNum);
+        Debug.Log(Hs[4].HighscoreNum);
+        Debug.Log(Hs[5].HighscoreNum);*/
+
+
     }
 
 
@@ -82,7 +109,7 @@ public class CollectiblesController : MonoBehaviour
 			cd [2].CollectibleNum++;
 		}
 
-		OutputCounts ();
+		//OutputCounts ();
 			
 
 
@@ -117,8 +144,10 @@ public class CollectiblesController : MonoBehaviour
 
 
         }
+        
 
 
 
-	}	
+
+    }	
 }
