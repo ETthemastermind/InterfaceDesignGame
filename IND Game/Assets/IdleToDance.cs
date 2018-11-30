@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class IdleToDance : MonoBehaviour {
 
-    public bool CanDance = false;
+    
+	public GameObject Character;
+	private Animator myAnim;
+
      
     
 	// Use this for initialization
 	void Start ()
     {
-        
+
+		myAnim = Character.GetComponent<Animator> (); //Get the animator component from the character
 	}
 	
 	// Update is called once per frame
@@ -18,17 +22,15 @@ public class IdleToDance : MonoBehaviour {
 		
 	}
 
-    public void Dance()
+    public void Dance() //method to start the character dancing
     {
-        Debug.Log("Default Dance");
-        
-        CanDance = true;
+		myAnim.SetBool ("IsDancing", true); //sets the IsDancing variable in the animator to true
         
     }
 
     public void StopDance()
     {
-        Debug.Log("Game End");
-        CanDance = false;
+		myAnim.SetBool ("IsDancing", false); //sets the IsDancing variable in the animator to false
+        
     }
 }

@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/New Scene.unity
     guid: bcc569a6d848dcc42ada5bc9604a4777
+  - enabled: 1
+    path: Assets/ButtonsLab.unity
+    guid: a87b9720aedad3d4fa76975bc756275e
