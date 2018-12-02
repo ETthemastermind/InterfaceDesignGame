@@ -17,15 +17,16 @@ public class PlayerController : MonoBehaviour
     Quaternion newRotation;
     float rotSpeed = 5f;
 
-    public Texture Char1;
-    public Texture Char2;
-    public Texture Char3;
+    public Material Char1;
+    public Material Char2;
+    public Material Char3;
 
    
 
 	Quaternion savedRot;
 
     public Text PlayerName;
+    public GameObject MummyCharacter;
 
 
     // Use this for initialization
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
         }
 
         AssignPlayerName();
+        AssignPlayerMaterial();
     }
 
     // Update is called once per frame
@@ -96,6 +98,21 @@ public class PlayerController : MonoBehaviour
         PlayerName.text = MainMenuController.ApprovedPlayerName;
     }
 
+    public void AssignPlayerMaterial()
+    {
+        if (MainMenuController.CharSelected == 1)
+        {
+            MummyCharacter.GetComponent<Renderer>().material = Char1;
+        }
+        else if (MainMenuController.CharSelected == 2)
+        {
+            MummyCharacter.GetComponent<Renderer>().material = Char2;
+        }
+        else if (MainMenuController.CharSelected == 3)
+        {
+            MummyCharacter.GetComponent<Renderer>().material = Char3;
+        }
+    }
 }
 
 
