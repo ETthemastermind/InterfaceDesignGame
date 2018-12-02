@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -16,16 +17,35 @@ public class PlayerController : MonoBehaviour
     Quaternion newRotation;
     float rotSpeed = 5f;
 
+    public Texture Char1;
+    public Texture Char2;
+    public Texture Char3;
+
    
 
 	Quaternion savedRot;
+
+    public Text PlayerName;
 
 
     // Use this for initialization
     void Start()
     {
         myAnim = GetComponent<Animator>();
+        if (MainMenuController.CharSelected == 1)
+        {
+            Debug.Log("Use Texture 1");
+        }
+        else if (MainMenuController.CharSelected == 2)
+        {
+            Debug.Log("Use Texture 2");
+        }
+        else if (MainMenuController.CharSelected == 3)
+        {
+            Debug.Log("Use Texture 3");
+        }
 
+        AssignPlayerName();
     }
 
     // Update is called once per frame
@@ -70,7 +90,11 @@ public class PlayerController : MonoBehaviour
         
 
     }
-
+    public void AssignPlayerName()
+    {
+        Debug.Log(MainMenuController.ApprovedPlayerName);
+        PlayerName.text = MainMenuController.ApprovedPlayerName;
+    }
 
 }
 

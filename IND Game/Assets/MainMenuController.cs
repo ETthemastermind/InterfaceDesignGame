@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour {
 
 	public AudioSource musicSource;
+    public static int CharSelected;
+    public InputField PlayerNameTextBox;
+    public static string ApprovedPlayerName;
+    private bool PlayerNameApproved = false;
+    
+    
 
 	public void PlayMusic()
 	{
@@ -28,8 +35,12 @@ public class MainMenuController : MonoBehaviour {
 
 	public void StartGame()
 	{
-		Debug.Log ("Loading Game");
-		SceneManager.LoadScene (0);
+        if (MainMenuController.CharSelected != 0 && PlayerNameApproved == true)
+        {
+            Debug.Log("Loading Game");
+            SceneManager.LoadScene(0);
+        }
+		
 	}
 
 	public void QuitGame()
@@ -43,15 +54,48 @@ public class MainMenuController : MonoBehaviour {
 		#endif
 	}
 
+    public void Char1Selection()
+    {
+        CharSelected =1 ;
+        Debug.Log(CharSelected);
+    }
+
+    public void Char2Selection()
+    {
+        CharSelected = 2;
+        Debug.Log(CharSelected);
+    }
+
+    public void Char3Selection()
+    {
+        CharSelected = 3;
+        Debug.Log(CharSelected);
+    }
+
+    public void GetPlayerName()
+    {
+
+        Debug.Log(PlayerNameTextBox.text);
+        if (PlayerNameTextBox.text == "")
+        {
+            Debug.Log("This name is not suffcient");
+            PlayerNameApproved = false;
+        }
+        else
+        {
+            ApprovedPlayerName = PlayerNameTextBox.text;
+            PlayerNameApproved = true;
+        }
+        
+    }
 
 
 
 
 
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
