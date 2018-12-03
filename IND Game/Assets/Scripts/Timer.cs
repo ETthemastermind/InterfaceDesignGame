@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
 	public float GameTimer;
+	public static float TimeLeft;
 	private bool GameEnded = false;
 
+	public Slider TimeBar;
+	public Canvas EndMenu;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		TimeLeft = GameTimer;
 		
 	}
 	
@@ -18,26 +24,34 @@ public class Timer : MonoBehaviour {
 	void Update () 
 	{
 
-		if (GameTimer > 0 && GameEnded == false) 
+		if (TimeLeft > 0 )//&& GameEnded == false) 
 		{
-			GameTimer -= Time.deltaTime;
-			//=-Debug.Log (GameTimer);
+			TimeLeft -= Time.deltaTime;
+			TimeBar.value = TimeLeft / GameTimer;
 
 
-			if (GameTimer < 0) 
+			if (TimeLeft < 0) 
 			{
 
 				GameEnded = true;
 				Debug.Log("Game Over");
-				if (SceneManager.GetActiveScene ().buildIndex == 0) 
-				{
+				gameObject.SetActive (false);
+				EndMenu.gameObject.SetActive (true);
 
-					SceneManager.LoadScene (1);
-				}
+				//if (SceneManager.GetActiveScene ().buildIndex == 0) 
+				//{
+
+				//	SceneManager.LoadScene (1);
+				//}
 
 
 			}	
 				
+		}
+
+		if (TimeLeft > GameTimer) 
+		{
+			TimeLeft = GameTimer;
 		}
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collect : MonoBehaviour {
 
@@ -8,6 +9,12 @@ public class Collect : MonoBehaviour {
     [SerializeField] private AudioClip Clip;
 
 	CollectiblesController cc;
+
+
+
+
+
+
 
 	void Start()
 	{
@@ -27,6 +34,23 @@ public class Collect : MonoBehaviour {
 
 
 			cc.IncrementCount(gameObject);
+
+			if (name.Contains ("Diamond")) 
+			{
+				Timer.TimeLeft += 15;
+			}
+
+			if (name.Contains ("Cubie")) 
+			{
+				Timer.TimeLeft += 10;
+			}
+
+			if (name.Contains ("Hexgon")) 
+			{
+				Timer.TimeLeft += 5;
+			}
+
+
 
 
             Destroy(gameObject);
