@@ -26753,6 +26753,7 @@ GameObject:
   - component: {fileID: 609664789}
   - component: {fileID: 609664791}
   - component: {fileID: 609664790}
+  - component: {fileID: 609664792}
   m_Layer: 5
   m_Name: CharacterFace
   m_TagString: Untagged
@@ -26810,6 +26811,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 609664788}
+--- !u!114 &609664792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609664788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04f816b3a4a2414b9bf231351c2cd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &615373686 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: f5baf401218f50f45a7f0fc2a17b6215, type: 3}
@@ -37084,7 +37096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &871645803
 Transform:
   m_ObjectHideFlags: 0
