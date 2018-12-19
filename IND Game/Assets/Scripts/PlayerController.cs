@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public Text PlayerName;
     public GameObject MummyCharacter;
 
+    private bool isMoving = false;
+
 
     // Use this for initialization
     void Start()
@@ -53,11 +55,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && isMoving == false)
         {
             Debug.Log("MOUSE clicked");
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-
+            
 
 
 
@@ -66,7 +68,9 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("got target");
 
                 agent.SetDestination(hit.point);
+                Debug.Log(hit.point);
                 myAnim.SetBool("IsRunning", true);
+                isMoving = true;
                
 
             }
@@ -77,6 +81,8 @@ public class PlayerController : MonoBehaviour
         if (dist < 1f)
         {
             myAnim.SetBool("IsRunning", false);
+            isMoving = false;
+            
         }
 
 
