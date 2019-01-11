@@ -51,7 +51,7 @@ public class Collect : MonoBehaviour {
 			}
 
 
-
+            Debug.Log("PickUp");
 
             Destroy(gameObject);
         }

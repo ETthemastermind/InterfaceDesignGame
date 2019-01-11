@@ -28,7 +28,7 @@ public class RandomSpawn : MonoBehaviour {
 	{
 		System.Random rand = new System.Random (); //creates a new thingy for making random numbers
 		TimeToSpawn = rand.Next (1, 10); //creates a random number between 1 and 10
-		Debug.Log("Initial time to spawn is " + TimeToSpawn);
+		//Debug.Log("Initial time to spawn is " + TimeToSpawn);
 
 	}
 	
@@ -37,7 +37,7 @@ public class RandomSpawn : MonoBehaviour {
 	{
 		if (TimeToSpawn <= 0) 
 		{
-			Debug.Log ("Item ready to spawn");
+			//Debug.Log ("Item ready to spawn");
 			// y = 2.5
 			// range of z = 70 & -125
 			//range of x = 80 & -80
@@ -47,15 +47,15 @@ public class RandomSpawn : MonoBehaviour {
 			ZRndNum = rand.Next (-125, 70); //generates a random z coord
 
 			Vector3 Spawnpoint = new Vector3 (XRndNum, 2.5f, ZRndNum); //creates the spawn vector for the object to be instantiated
-			Debug.Log(Spawnpoint);
+			//Debug.Log(Spawnpoint);
 
 
 			int NumToPick = rand.Next (0, 100);
-			Debug.Log ("Randomly genned number is " + NumToPick);
+			//Debug.Log ("Randomly genned number is " + NumToPick);
 
 			if (NumToPick > 0 && NumToPick < 50 && CurrentHexagons != MaxHexagons) {
 				Instantiate (Hexagon, Spawnpoint, transform.rotation); //instantiates the object
-				Debug.Log ("Hexagon Spawned");
+				//Debug.Log ("Hexagon Spawned");
 				CurrentHexagons += 1;
 			} 
 
@@ -64,13 +64,13 @@ public class RandomSpawn : MonoBehaviour {
 
 			if (NumToPick > 51 && NumToPick < 80 && CurrentCubies != MaxCubies) {
 				Instantiate (Cubie, Spawnpoint, transform.rotation); //instantiates the object
-				Debug.Log ("Cubie Spawned");
+				//Debug.Log ("Cubie Spawned");
 				CurrentCubies += 1;
 			} 
 
 			if (NumToPick > 81 && NumToPick < 100 && CurrentDiamonds != MaxDiamonds) {
 				Instantiate (Diamond, Spawnpoint, transform.rotation); //instantiates the object
-				Debug.Log ("Diamond Spawned");
+				//Debug.Log ("Diamond Spawned");
 				CurrentDiamonds += 1;
 			} 
 
@@ -82,7 +82,7 @@ public class RandomSpawn : MonoBehaviour {
 		
 
 			TimeToSpawn = rand.Next (1, 10);
-			Debug.Log ("New time to spawn is " + TimeToSpawn);
+			//Debug.Log ("New time to spawn is " + TimeToSpawn);
 
 
 

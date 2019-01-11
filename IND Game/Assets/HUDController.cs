@@ -9,6 +9,10 @@ public class HUDController : MonoBehaviour {
 	public Text timeText;
 	private float startTime;
 
+    public Text Steps;
+    public GameObject WaypointObjects;
+    private string GetSteps;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -22,6 +26,11 @@ public class HUDController : MonoBehaviour {
 		string minutes = ((int)t / 60).ToString ("00");
 		string seconds = (t % 60).ToString ("00");
 		timeText.text = minutes + ":" + seconds;
-		
-	}
+
+        Steps.text = WaypointScript.Steps.ToString();
+        
+
+
+
+    }
 }

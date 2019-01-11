@@ -30,6 +30,25 @@ public class PlayerController : MonoBehaviour
 
     private bool isMoving = false;
 
+    
+
+    public Vector3 Destination;
+    public GameObject WaypointObject; 
+	private GameObject wayPoint;
+	//WayPoint wayPoint; 
+	//UPDATE(
+	/*
+	 * if (wayPoint != NULL)
+	 * {
+	 * 	Destroy(WayPoint);
+	 * }
+	 * 
+	 *wayPoint = (GameObject)Intantiate(waypoint prefab, pos); 
+	 *
+	 * 
+	 * 
+	 * 
+	 * */
 
     // Use this for initialization
     void Start()
@@ -55,9 +74,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && isMoving == false)
+		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log("MOUSE clicked");
+            //Debug.Log("MOUSE clicked");
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             
 
@@ -65,13 +84,25 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("got target");
+                //Debug.Log("got target");
 
                 agent.SetDestination(hit.point);
-                Debug.Log(hit.point);
+                Destination = hit.point;
+                //Debug.Log(Destination);
                 myAnim.SetBool("IsRunning", true);
                 isMoving = true;
-               
+
+				if (wayPoint != null) 
+				{
+					Destroy(wayPoint);
+				}
+
+				wayPoint = (GameObject)Instantiate(WaypointObject, Destination, Quaternion.identity);
+
+
+
+
+
 
             }
         }
@@ -93,6 +124,8 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, rotSpeed * Time.deltaTime);
 
+
+        //StepCalc();
 
 
         
@@ -119,6 +152,8 @@ public class PlayerController : MonoBehaviour
             MummyCharacter.GetComponent<Renderer>().material = Char3;
         }
     }
+
+    
 }
 
 
