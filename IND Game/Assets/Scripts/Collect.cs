@@ -22,6 +22,12 @@ public class Collect : MonoBehaviour {
 		cc = ccgo.GetComponent<CollectiblesController> ();
 	}
 
+	void Update()
+	{
+		
+
+	}
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -38,16 +44,22 @@ public class Collect : MonoBehaviour {
 			if (name.Contains ("Diamond")) 
 			{
 				Timer.TimeLeft += 15;
+
+
 			}
 
 			if (name.Contains ("Cubie")) 
 			{
 				Timer.TimeLeft += 10;
+
+
 			}
 
 			if (name.Contains ("Hexgon")) 
 			{
 				Timer.TimeLeft += 5;
+
+
 			}
 
 

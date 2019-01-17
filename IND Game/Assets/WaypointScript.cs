@@ -45,7 +45,7 @@ public class WaypointScript : MonoBehaviour {
         {
             StartTime += StepPeriod;
             Steps = Steps + 1;
-           // Debug.Log(Steps);
+           	Debug.Log(Steps);
             
         }
     }

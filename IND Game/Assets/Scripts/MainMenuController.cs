@@ -11,10 +11,12 @@ public class MainMenuController : MonoBehaviour {
     public InputField PlayerNameTextBox;
     public static string ApprovedPlayerName;
     private bool PlayerNameApproved = false;
-    
+
     
 
-	public void PlayMusic()
+
+
+    public void PlayMusic()
 	{
 		if (musicSource.isPlaying) 
 		{
@@ -26,6 +28,8 @@ public class MainMenuController : MonoBehaviour {
 		}
 
 	}
+
+  
 
 
 	public void SetFullScreen (bool isFullScreen )
@@ -75,7 +79,7 @@ public class MainMenuController : MonoBehaviour {
     public void GetPlayerName()
     {
 
-        Debug.Log(PlayerNameTextBox.text);
+      
         if (PlayerNameTextBox.text == "")
         {
             Debug.Log("This name is not suffcient");
@@ -83,8 +87,11 @@ public class MainMenuController : MonoBehaviour {
         }
         else
         {
-            ApprovedPlayerName = PlayerNameTextBox.text;
+            
             PlayerNameApproved = true;
+            Debug.Log("ApprovedPlayerName");
+            ApprovedPlayerName = PlayerNameTextBox.text;
+            
         }
         
     }

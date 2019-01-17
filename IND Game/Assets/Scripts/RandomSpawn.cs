@@ -54,7 +54,7 @@ public class RandomSpawn : MonoBehaviour {
 			//Debug.Log ("Randomly genned number is " + NumToPick);
 
 			if (NumToPick > 0 && NumToPick < 50 && CurrentHexagons != MaxHexagons) {
-				Instantiate (Hexagon, Spawnpoint, transform.rotation); //instantiates the object
+				Instantiate (Hexagon, Spawnpoint, Quaternion.Euler(new Vector3(270,0,0))); //instantiates the object
 				//Debug.Log ("Hexagon Spawned");
 				CurrentHexagons += 1;
 			} 
@@ -63,13 +63,13 @@ public class RandomSpawn : MonoBehaviour {
 
 
 			if (NumToPick > 51 && NumToPick < 80 && CurrentCubies != MaxCubies) {
-				Instantiate (Cubie, Spawnpoint, transform.rotation); //instantiates the object
+				Instantiate (Cubie, Spawnpoint, Quaternion.Euler(new Vector3(270, 0, 0))); //instantiates the object
 				//Debug.Log ("Cubie Spawned");
 				CurrentCubies += 1;
 			} 
 
 			if (NumToPick > 81 && NumToPick < 100 && CurrentDiamonds != MaxDiamonds) {
-				Instantiate (Diamond, Spawnpoint, transform.rotation); //instantiates the object
+				Instantiate (Diamond, Spawnpoint, Quaternion.Euler(new Vector3(270, 0, 0))); //instantiates the object
 				//Debug.Log ("Diamond Spawned");
 				CurrentDiamonds += 1;
 			} 

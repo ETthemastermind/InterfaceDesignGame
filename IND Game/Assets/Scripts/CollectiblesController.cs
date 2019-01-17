@@ -11,10 +11,10 @@ public class CollectiblesController : MonoBehaviour
 	public CollectiblesData[] cd;
     public HighScoreData[] Hs;
     private int[] ranking;
-    private int DiamondScore;
-    private int CubieScore;
-    private int HexgonScore;
-    private int TotalScore;
+    public int DiamondScore;
+    public int CubieScore;
+    public int HexgonScore;
+    public int TotalScore;
     private bool ScoreCalculated = false;
     private bool HSloaded = false;
 
@@ -62,7 +62,7 @@ public class CollectiblesController : MonoBehaviour
         TotalScore = DiamondScore + CubieScore + HexgonScore;
         Debug.Log("Your total score is " + TotalScore);
 
-        Hs[5].HighscoreNum = TotalScore;
+        cd[3].CollectibleNum = TotalScore;
 
         Array.Sort(Hs);
         
@@ -127,6 +127,7 @@ public class CollectiblesController : MonoBehaviour
 
 	void Update()
 	{
+		CalcHighScore ();
         /*if (Input.GetKeyDown ("l")) {
 			Debug.Log ("Loading data...");
 			LoadData ();
