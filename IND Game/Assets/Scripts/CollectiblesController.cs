@@ -64,6 +64,8 @@ public class CollectiblesController : MonoBehaviour
 
         cd[3].CollectibleNum = TotalScore;
 
+        
+
         //Array.Sort(Hs);
         
 
@@ -99,15 +101,22 @@ public class CollectiblesController : MonoBehaviour
 
 	public void IncrementCount (GameObject go)
 	{
-		if (go.name.Contains ("Diamond")) {
-			cd [0].CollectibleNum++;
-		} 
-		else if (go.name.Contains ("Cubie")) {
-			cd [1].CollectibleNum++;
-		} 
-		else if (go.name.Contains ("Hexgon")) {
-			cd [2].CollectibleNum++;
-		}
+        if (go.name.Contains("Diamond"))
+        {
+            cd[0].CollectibleNum++;
+        }
+        else if (go.name.Contains("Cubie"))
+        {
+            cd[1].CollectibleNum++;
+        }
+        else if (go.name.Contains("Hexgon"))
+        {
+            cd[2].CollectibleNum++;
+        }
+        else if (go.name.Contains("Ankh"))
+        {
+            cd[6].CollectibleNum++;
+        }
 
 		//OutputCounts ();
 			

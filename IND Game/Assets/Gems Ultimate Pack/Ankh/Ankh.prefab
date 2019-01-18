@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 95888375486442956}
   - component: {fileID: 65964903042451270}
   - component: {fileID: 114242337781726834}
+  - component: {fileID: 114292159417973170}
   m_Layer: 0
   m_Name: Ankh
   m_TagString: Untagged
@@ -328,4 +329,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734fc9dcfb9735142a8b9014c40f44cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PopUpMenu: {fileID: 0}
+--- !u!114 &114292159417973170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646642575545582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c92bbe2afc5e747bbddf558b047348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clip: {fileID: 8300000, guid: 0634367cf854c794bb156ca3c6090db8, type: 3}
