@@ -21,9 +21,5 @@ public class HighScoreController : MonoBehaviour {
 		
 	}
 
-    public void AssignHighScore()
-    {
-        Hs[5].HighscoreNum = cc.cd[3].CollectibleNum;
-        Hs[5].HighscoreName = MainMenuController.ApprovedPlayerName;
-    }
+   
 }

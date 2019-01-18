@@ -9,7 +9,7 @@ using System;
 public class CollectiblesController : MonoBehaviour 
 {
 	public CollectiblesData[] cd;
-    public HighScoreData[] Hs;
+    //public HighScoreData[] Hs;
     private int[] ranking;
     public int DiamondScore;
     public int CubieScore;
@@ -22,17 +22,20 @@ public class CollectiblesController : MonoBehaviour
 
 	public void SaveData()
 	{
+        /*
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream fs = File.Create (Application.persistentDataPath + "/Highscores.dat");
 		bf.Serialize (fs, Hs);
 		fs.Close ();
 		Debug.Log ("Data saved.");
+        */
 	}
 
 
 
 	public void LoadData()
 	{
+        /*
 		if (File.Exists (Application.persistentDataPath + "/Highscores.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream fs = File.Open (Application.persistentDataPath + "/Highscores.dat", FileMode.Open);
@@ -43,7 +46,7 @@ public class CollectiblesController : MonoBehaviour
 		{
 			Debug.LogError ("File you are trying to load from is missing");
 		}
-			
+		*/
 	}
 
    public void CalcHighScore()

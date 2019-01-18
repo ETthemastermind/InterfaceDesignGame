@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class EndMenuController : MonoBehaviour {
 
@@ -23,7 +25,7 @@ public class EndMenuController : MonoBehaviour {
     public Text Hs4;
     public Text Hs5;
 
-
+    public List<int> TempHS = new List<int>();
 
     // Use this for initialization
     void Start ()
@@ -34,11 +36,13 @@ public class EndMenuController : MonoBehaviour {
         GameObject Hsgo = GameObject.Find("HighScoreController");
         Hs = Hsgo.GetComponent<HighScoreController>();
 
+
         AssignHighScore();
-        AssignData ();
-        
-		
-	}
+        SortHighScore();
+        AssignData();
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -82,6 +86,24 @@ public class EndMenuController : MonoBehaviour {
         Hs.Hs[5].HighscoreName = MainMenuController.ApprovedPlayerName;
     }
 
+
+    public void SortHighScore()
+    {
+        for (int i = 0; i < Hs.Hs.Length; i++)
+        {
+            TempHS.Add(Hs.Hs[i].HighscoreNum);
+            //Debug.Log("Unsorted" + TempHS[i]);
+        }
+        TempHS.Sort();
+        TempHS.Reverse();
+
+        for (int i = 0; i < Hs.Hs.Length; i++)
+        {
+            Hs.Hs[i].HighscoreNum = TempHS[i];
+        }
+        
+       
+    }
 
 
 
