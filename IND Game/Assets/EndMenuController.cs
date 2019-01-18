@@ -28,7 +28,9 @@ public class EndMenuController : MonoBehaviour {
     public Text Hs5;
 
     public List<string> TempHS = new List<string>();
+
     
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -53,6 +55,8 @@ public class EndMenuController : MonoBehaviour {
         SortHighScore();
         AssignData();
         SaveData();
+
+        Debug.Log(Application.persistentDataPath);
 
 
     }
