@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 public class EndMenuController : MonoBehaviour {
@@ -25,7 +27,17 @@ public class EndMenuController : MonoBehaviour {
     public Text Hs4;
     public Text Hs5;
 
-    public List<int> TempHS = new List<int>();
+    public List<string> TempHS = new List<string>();
+    
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        //prevent multiple instances of the same object
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Use this for initialization
     void Start ()
@@ -40,6 +52,7 @@ public class EndMenuController : MonoBehaviour {
         AssignHighScore();
         SortHighScore();
         AssignData();
+        SaveData();
 
 
     }
@@ -71,19 +84,19 @@ public class EndMenuController : MonoBehaviour {
         Steps.text = cc.cd[4].CollectibleNum.ToString();
         TimeTaken.text = cc.cd[5].CollectibleName.ToString();
 
-        Hs1.text = Hs.Hs[0].HighscoreName + "-" + Hs.Hs[0].HighscoreNum;
-        Hs2.text = Hs.Hs[1].HighscoreName + "-" + Hs.Hs[1].HighscoreNum;
-        Hs3.text = Hs.Hs[2].HighscoreName + "-" + Hs.Hs[2].HighscoreNum;
-        Hs4.text = Hs.Hs[3].HighscoreName + "-" + Hs.Hs[3].HighscoreNum;
-        Hs5.text = Hs.Hs[4].HighscoreName + "-" + Hs.Hs[4].HighscoreNum;
+        Hs1.text = Hs.Hs[0].Highscore;
+        Hs2.text = Hs.Hs[1].Highscore;
+        Hs3.text = Hs.Hs[2].Highscore;
+        Hs4.text = Hs.Hs[3].Highscore;
+        Hs5.text = Hs.Hs[4].Highscore;
 
 
     }
 
     public void AssignHighScore()
     {
-        Hs.Hs[5].HighscoreNum = cc.cd[3].CollectibleNum;
-        Hs.Hs[5].HighscoreName = MainMenuController.ApprovedPlayerName;
+        Hs.Hs[5].Highscore = (cc.cd[3].CollectibleNum + " achieved by " + MainMenuController.ApprovedPlayerName).ToString();
+
     }
 
 
@@ -91,7 +104,7 @@ public class EndMenuController : MonoBehaviour {
     {
         for (int i = 0; i < Hs.Hs.Length; i++)
         {
-            TempHS.Add(Hs.Hs[i].HighscoreNum);
+            TempHS.Add(Hs.Hs[i].Highscore);
             //Debug.Log("Unsorted" + TempHS[i]);
         }
         TempHS.Sort();
@@ -99,12 +112,28 @@ public class EndMenuController : MonoBehaviour {
 
         for (int i = 0; i < Hs.Hs.Length; i++)
         {
-            Hs.Hs[i].HighscoreNum = TempHS[i];
+            Debug.Log(TempHS[i]);
+        }
+
+
+
+        for (int i = 0; i < Hs.Hs.Length; i++)
+        {
+            Hs.Hs[i].Highscore = TempHS[i];
         }
         
        
     }
-
+    public void SaveData()
+    {
+        
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream fs = File.Create (Application.persistentDataPath + "/Highscores.dat");
+		bf.Serialize (fs, Hs.Hs);
+		fs.Close ();
+		Debug.Log ("Data saved.");
+        
+    }
 
 
 

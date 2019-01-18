@@ -13224,7 +13224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 24.900024, y: 27}
+  m_AnchoredPosition: {x: 24.899902, y: 27}
   m_SizeDelta: {x: -651.6, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288785202
@@ -24198,6 +24198,7 @@ MonoBehaviour:
   Hs3: {fileID: 1192579737}
   Hs4: {fileID: 958795636}
   Hs5: {fileID: 1570826110}
+  TempHS: []
 --- !u!1001 &523611668
 Prefab:
   m_ObjectHideFlags: 0
@@ -56744,18 +56745,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hs:
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
+  - Highscore: 
+  - Highscore: 
+  - Highscore: 
+  - Highscore: 
+  - Highscore: 
+  - Highscore: 
   cc: {fileID: 0}
 --- !u!224 &1297267311
 RectTransform:
@@ -80766,19 +80761,6 @@ MonoBehaviour:
     CollectibleNum: 0
   - CollectibleName: Ankh
     CollectibleNum: 0
-  Hs:
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
-  - HighscoreNum: 0
-    HighscoreName: 
   DiamondScore: 0
   CubieScore: 0
   HexgonScore: 0
