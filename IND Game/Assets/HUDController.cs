@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class HUDController : MonoBehaviour {
@@ -22,6 +23,9 @@ public class HUDController : MonoBehaviour {
 	public Text TotalScore;
 
     public Animator PlacesAnim;
+
+	public Canvas EndMenu;
+	public Text PlayerName;
 	// Use this for initialization
 	void Start () 
 	{
@@ -30,6 +34,8 @@ public class HUDController : MonoBehaviour {
 		cc = ccgo.GetComponent<CollectiblesController> ();
 
         PlacesAnim.enabled = false;
+
+		Time.timeScale = 1;
 	}
 	
 	// Update is called once per frame
@@ -47,6 +53,10 @@ public class HUDController : MonoBehaviour {
 		HexagonScore.text = cc.cd [2].CollectibleNum.ToString ();
 		TotalScore.text = cc.cd [3].CollectibleNum.ToString ();
 
+        cc.cd[5].CollectibleName = timeText.text;
+
+
+
 
     }
 
@@ -55,4 +65,8 @@ public class HUDController : MonoBehaviour {
         PlacesAnim.enabled = true;
         PlacesAnim.Play("SlidingScroll");
     }
+
+
+
+
 }

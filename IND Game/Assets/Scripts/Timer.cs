@@ -6,19 +6,30 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-	public float GameTimer;
+    public CollectiblesController cc;
+
+    public float GameTimer;
 	public static float TimeLeft;
 	private bool GameEnded = false;
 
 	public Slider TimeBar;
 	public Canvas EndMenu;
+    public GameObject HUDCOntroller;
 
-	// Use this for initialization
-	void Start () 
+    
+
+
+
+    // Use this for initialization
+    void Start () 
 	{
 		TimeLeft = GameTimer;
-		
-	}
+        
+
+        GameObject ccgo = GameObject.Find("CollectiblesController");
+        cc = ccgo.GetComponent<CollectiblesController>();
+
+}
 	
 	// Update is called once per frame
 	void Update () 
@@ -37,6 +48,10 @@ public class Timer : MonoBehaviour {
 				Debug.Log("Game Over");
 				gameObject.SetActive (false);
 				EndMenu.gameObject.SetActive (true);
+                
+
+
+
 
 				//if (SceneManager.GetActiveScene ().buildIndex == 0) 
 				//{

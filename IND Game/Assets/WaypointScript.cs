@@ -7,6 +7,7 @@ public class WaypointScript : MonoBehaviour {
     private float StartTime;
     public float StepPeriod;
     public static int Steps;
+    public CollectiblesController cc;
 
  
    
@@ -16,9 +17,11 @@ public class WaypointScript : MonoBehaviour {
 	void Start ()
     {
         StartTime = Time.time;
-        
 
-	}
+        GameObject ccgo = GameObject.Find("CollectiblesController");
+        cc = ccgo.GetComponent<CollectiblesController>();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -45,7 +48,9 @@ public class WaypointScript : MonoBehaviour {
         {
             StartTime += StepPeriod;
             Steps = Steps + 1;
-           	Debug.Log(Steps);
+            //Debug.Log(Steps);
+            cc.cd[4].CollectibleNum = Steps;
+            
             
         }
     }

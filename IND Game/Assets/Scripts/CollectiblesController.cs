@@ -64,7 +64,7 @@ public class CollectiblesController : MonoBehaviour
 
         cd[3].CollectibleNum = TotalScore;
 
-        Array.Sort(Hs);
+        //Array.Sort(Hs);
         
 
 
