@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Surprise : MonoBehaviour {
 
-
+    public GameObject PopUp;
     
  
 	// Use this for initialization
 	void Start ()
     {
-        
-        
+
+        PopUp = GameObject.Find("Canvas - PopUp");
         
 
     }
@@ -36,9 +36,9 @@ public class Surprise : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("SURPRISE");
+            PopUp.GetComponentInChildren<Canvas>().enabled = true;
 
-            
-        
         }
     }
 }

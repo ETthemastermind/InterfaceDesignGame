@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StopTime : MonoBehaviour {
+    public GameObject PopUp;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
 		
 	}
@@ -13,7 +14,17 @@ public class StopTime : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Time.timeScale = 0;
+        if (PopUp.GetComponentInChildren<Canvas>().enabled == true)
+        {
+            Time.timeScale = 0;
+        }
+        else if(PopUp.GetComponentInChildren<Canvas>().enabled == false)
+        {
+            Time.timeScale = 1;
+        }
 
-	}
+
+
+
+    }
 }
