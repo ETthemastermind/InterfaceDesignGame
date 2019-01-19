@@ -8,11 +8,14 @@ public class places : MonoBehaviour {
 	[SerializeField] private AudioClip clip;
 
     public Toggle HasVisited;
+    public CollectiblesController cc;
 
-	// Use this for initialization
-	void Start () {
-
-	}
+    // Use this for initialization
+    void Start ()
+    {
+        GameObject ccgo = GameObject.Find("CollectiblesController");
+        cc = ccgo.GetComponent<CollectiblesController>();
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -29,7 +32,7 @@ public class places : MonoBehaviour {
 
 			Debug.Log ("Sound Played");
 
-
+            cc.cd[3].CollectibleNum += 10;
 
 			Debug.Log ("Collision Detected, collided with" + gameObject.name);
 			Destroy (gameObject);

@@ -20,6 +20,10 @@ public class RandomSpawn : MonoBehaviour {
 	public int MaxHexagons;
 	private int CurrentHexagons;
 
+    public GameObject Ankh;
+    public int MaxAnkh;
+    private int CurrentAnkh;
+
 	//5d 15c 25h
 
 
@@ -50,7 +54,7 @@ public class RandomSpawn : MonoBehaviour {
 			//Debug.Log(Spawnpoint);
 
 
-			int NumToPick = rand.Next (0, 100);
+			int NumToPick = rand.Next (0,101 );
 			//Debug.Log ("Randomly genned number is " + NumToPick);
 
 			if (NumToPick > 0 && NumToPick < 50 && CurrentHexagons != MaxHexagons) {
@@ -62,26 +66,36 @@ public class RandomSpawn : MonoBehaviour {
 
 
 
-			if (NumToPick > 51 && NumToPick < 80 && CurrentCubies != MaxCubies) {
+			if (NumToPick > 50 && NumToPick < 81 && CurrentCubies != MaxCubies) {
 				Instantiate (Cubie, Spawnpoint, Quaternion.Euler(new Vector3(270, 0, 0))); //instantiates the object
 				//Debug.Log ("Cubie Spawned");
 				CurrentCubies += 1;
 			} 
 
-			if (NumToPick > 81 && NumToPick < 100 && CurrentDiamonds != MaxDiamonds) {
+			if (NumToPick > 80 && NumToPick < 96 && CurrentDiamonds != MaxDiamonds) {
 				Instantiate (Diamond, Spawnpoint, Quaternion.Euler(new Vector3(270, 0, 0))); //instantiates the object
 				//Debug.Log ("Diamond Spawned");
 				CurrentDiamonds += 1;
-			} 
+			}
+
+            if (NumToPick > 95 && NumToPick < 101 && CurrentAnkh != MaxAnkh)
+            {
+                Instantiate(Ankh, Spawnpoint, Quaternion.Euler(new Vector3(0, 0, 0))); //instantiates the object
+                                                                                            //Debug.Log ("Diamond Spawned");
+                CurrentAnkh += 1;
+            }
 
 
 
 
-			//CurrentNumberSpawned += 1;
 
-		
 
-			TimeToSpawn = rand.Next (1, 10);
+
+            //CurrentNumberSpawned += 1;
+
+
+
+            TimeToSpawn = rand.Next (1, 10);
 			//Debug.Log ("New time to spawn is " + TimeToSpawn);
 
 

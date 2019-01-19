@@ -139,7 +139,7 @@ public class CollectiblesController : MonoBehaviour
 
 	void Update()
 	{
-		CalcHighScore ();
+		//CalcHighScore ();
         /*if (Input.GetKeyDown ("l")) {
 			Debug.Log ("Loading data...");
 			LoadData ();

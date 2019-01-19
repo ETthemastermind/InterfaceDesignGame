@@ -8,7 +8,7 @@ public class Collect : MonoBehaviour {
     private AudioSource Source;
     [SerializeField] private AudioClip Clip;
 
-	CollectiblesController cc;
+	public CollectiblesController cc;
 
 
 
@@ -24,7 +24,7 @@ public class Collect : MonoBehaviour {
 
 	void Update()
 	{
-		
+        transform.position = new Vector3(transform.position.x, 2.5f, transform.position.z);
 
 	}
 
@@ -39,11 +39,14 @@ public class Collect : MonoBehaviour {
             Source.PlayOneShot(Clip, 1.0f);
 
 
-			cc.IncrementCount(gameObject);
+			//cc.IncrementCount(gameObject);
 
 			if (name.Contains ("Diamond")) 
 			{
 				Timer.TimeLeft += 15;
+                cc.cd[0].CollectibleNum ++;
+                cc.cd[3].CollectibleNum += 5;
+
 
 
 			}
@@ -51,16 +54,26 @@ public class Collect : MonoBehaviour {
 			if (name.Contains ("Cubie")) 
 			{
 				Timer.TimeLeft += 10;
+                cc.cd[0].CollectibleNum ++;
+                cc.cd[3].CollectibleNum += 3;
 
 
-			}
+            }
 
 			if (name.Contains ("Hexgon")) 
 			{
 				Timer.TimeLeft += 5;
+                cc.cd[0].CollectibleNum ++;
+                cc.cd[3].CollectibleNum += 1;
 
 
-			}
+            }
+
+            if (name.Contains("Ankh"))
+            {
+                cc.cd[6].CollectibleNum++;
+
+            }
 
 
             Debug.Log("PickUp");

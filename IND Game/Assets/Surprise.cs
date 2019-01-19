@@ -30,6 +30,8 @@ public class Surprise : MonoBehaviour {
             Time.timeScale = 1;
         }
         */
+        
+
 	}
 
     private void OnTriggerEnter(Collider other)
