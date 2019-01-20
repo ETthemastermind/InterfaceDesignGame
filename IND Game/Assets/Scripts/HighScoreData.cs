@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ using UnityEngine;
 public class HighScoreData
 {
     
-    public string Highscore;
+    public int HighscoreNum;
+    public string HighscoreName;
 
 	
 }
