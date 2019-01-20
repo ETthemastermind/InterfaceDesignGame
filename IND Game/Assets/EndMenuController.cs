@@ -8,11 +8,13 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
-public class EndMenuController : MonoBehaviour {
 
-	public CollectiblesController cc;
+public class EndMenuController : MonoBehaviour
+{
+
+    public CollectiblesController cc;
     public HighScoreController Hs;
-	public Text PlayerName;
+    public Text PlayerName;
     public Text DiamondScore;
     public Text CubieScore;
     public Text HexagonScore;
@@ -27,9 +29,9 @@ public class EndMenuController : MonoBehaviour {
     public Text Hs4;
     public Text Hs5;
 
-    public List<string> TempHS = new List<string>();
+    public List<string> TempHs = new List<string>();
 
-    
+
 
     void Awake()
     {
@@ -42,10 +44,10 @@ public class EndMenuController : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
-	{
-		GameObject ccgo = GameObject.Find ("CollectiblesController");
-		cc = ccgo.GetComponent<CollectiblesController> ();
+    void Start()
+    {
+        GameObject ccgo = GameObject.Find("CollectiblesController");
+        cc = ccgo.GetComponent<CollectiblesController>();
 
         GameObject Hsgo = GameObject.Find("HighScoreController");
         Hs = Hsgo.GetComponent<HighScoreController>();
@@ -60,28 +62,28 @@ public class EndMenuController : MonoBehaviour {
 
 
     }
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
-	public void QuitGame()
-	{
 
-		SceneManager.LoadScene (1);
+    // Update is called once per frame
+    void Update()
+    {
 
-	}
+    }
+    public void QuitGame()
+    {
 
-	public void Restart()
-	{
-		SceneManager.LoadScene (0);
-	}
+        SceneManager.LoadScene(1);
 
-	public void AssignData()
-	{
-		PlayerName.text = MainMenuController.ApprovedPlayerName + " - " + cc.cd[3].CollectibleNum;
-        DiamondScore.text = cc.cd [0].CollectibleNum.ToString ();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void AssignData()
+    {
+        PlayerName.text = MainMenuController.ApprovedPlayerName + " - " + cc.cd[3].CollectibleNum;
+        DiamondScore.text = cc.cd[0].CollectibleNum.ToString();
         CubieScore.text = cc.cd[1].CollectibleNum.ToString();
         HexagonScore.text = cc.cd[2].CollectibleNum.ToString();
         AnkhScore.text = cc.cd[6].CollectibleNum.ToString();
@@ -108,37 +110,46 @@ public class EndMenuController : MonoBehaviour {
     {
         for (int i = 0; i < Hs.Hs.Length; i++)
         {
-            TempHS.Add(Hs.Hs[i].Highscore);
-            //Debug.Log("Unsorted" + TempHS[i]);
-        }
-        TempHS.Sort();
-        TempHS.Reverse();
-
-        for (int i = 0; i < Hs.Hs.Length; i++)
-        {
-            Debug.Log(TempHS[i]);
-        }
-
-
-
-        for (int i = 0; i < Hs.Hs.Length; i++)
-        {
-            Hs.Hs[i].Highscore = TempHS[i];
+            TempHs.Add(Hs.Hs[i].Highscore);
+            //Debug.Log("Unsorted" + TempHs[i]);
         }
         
-       
+
+        TempHs.Sort();
+        TempHs.Reverse();
+
+
+
+        for (int i = 0; i < Hs.Hs.Length; i++)
+        {
+            Debug.Log(TempHs[i]);
+        }
+
+
+
+        for (int i = 0; i < Hs.Hs.Length; i++)
+        {
+            Hs.Hs[i].Highscore = TempHs[i];
+        }
+        
+
+
+
+
+
+
     }
     public void SaveData()
     {
-        
-		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream fs = File.Create (Application.persistentDataPath + "/Highscores.dat");
-		bf.Serialize (fs, Hs.Hs);
-		fs.Close ();
-		Debug.Log ("Data saved.");
-        
+
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream fs = File.Create(Application.persistentDataPath + "/Highscores.dat");
+        bf.Serialize(fs, Hs.Hs);
+        fs.Close();
+        Debug.Log("Data saved.");
+
     }
-
-
-
 }
+
+
+

@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
 
     private bool isMoving = false;
 
+    private AudioSource running;
+    [SerializeField] private AudioClip Clip;
+    private Rigidbody rb;
+   
+
     
 
     public Vector3 Destination;
@@ -69,6 +74,15 @@ public class PlayerController : MonoBehaviour
 
         AssignPlayerName();
         AssignPlayerMaterial();
+
+
+        rb = gameObject.GetComponent<Rigidbody>();
+
+        running = gameObject.GetComponent<AudioSource>();
+
+        
+
+        
     }
 
     // Update is called once per frame
@@ -91,8 +105,9 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log(Destination);
                 myAnim.SetBool("IsRunning", true);
                 isMoving = true;
+                running.Play();
 
-				if (wayPoint != null) 
+                if (wayPoint != null) 
 				{
 					Destroy(wayPoint);
 				}
@@ -113,7 +128,8 @@ public class PlayerController : MonoBehaviour
         {
             myAnim.SetBool("IsRunning", false);
             isMoving = false;
-            
+            running.Stop();
+
         }
 
 
@@ -126,6 +142,17 @@ public class PlayerController : MonoBehaviour
 
 
         //StepCalc();
+
+        if (rb.velocity.magnitude > 0)
+        {
+            
+            Debug.Log("pitter patter");
+        }
+        else
+        {
+            
+        }
+
 
 
         

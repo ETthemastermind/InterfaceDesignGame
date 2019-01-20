@@ -26,8 +26,12 @@ public class HUDController : MonoBehaviour {
 
 	public Canvas EndMenu;
 	public Text PlayerName;
-	// Use this for initialization
-	void Start () 
+
+    public Image PlacesImage;
+    private AudioSource PageTurn;
+    [SerializeField] private AudioClip Clip;
+    // Use this for initialization
+    void Start () 
 	{
 		startTime = Time.time;	
 		GameObject ccgo = GameObject.Find ("CollectiblesController");
@@ -36,6 +40,8 @@ public class HUDController : MonoBehaviour {
         PlacesAnim.enabled = false;
 
 		Time.timeScale = 1;
+
+        PageTurn = PlacesImage.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -51,7 +57,7 @@ public class HUDController : MonoBehaviour {
 		DiamondScore.text = cc.cd [0].CollectibleNum.ToString ();
 		CubieScore.text = cc.cd [1].CollectibleNum.ToString ();
 		HexagonScore.text = cc.cd [2].CollectibleNum.ToString ();
-		TotalScore.text = cc.cd [3].CollectibleNum.ToString ();
+		TotalScore.text = ("Total Score: "+ cc.cd [3].CollectibleNum.ToString ());
 
         cc.cd[5].CollectibleName = timeText.text;
 
@@ -64,6 +70,8 @@ public class HUDController : MonoBehaviour {
     {
         PlacesAnim.enabled = true;
         PlacesAnim.Play("SlidingScroll");
+        PageTurn.PlayOneShot(Clip, 1f);
+
     }
 
 
