@@ -54,7 +54,7 @@ public class Collect : MonoBehaviour {
 			if (name.Contains ("Cubie")) 
 			{
 				Timer.TimeLeft += 4;
-                cc.cd[0].CollectibleNum ++;
+                cc.cd[1].CollectibleNum ++;
                 cc.cd[3].CollectibleNum += 3;
 
 
@@ -63,7 +63,7 @@ public class Collect : MonoBehaviour {
 			if (name.Contains ("Hexgon")) 
 			{
 				Timer.TimeLeft += 3;
-                cc.cd[0].CollectibleNum ++;
+                cc.cd[2].CollectibleNum ++;
                 cc.cd[3].CollectibleNum += 1;
 
 
